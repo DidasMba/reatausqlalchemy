@@ -34,3 +34,4 @@ class Customer(Base):
     def delete_reviews(self, restaurant):
         # Implementation to delete all reviews for a specific restaurant
         pass
+

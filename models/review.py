@@ -23,3 +23,6 @@ class Review(Base):
     def full_review(self):
         # Implementation to return a formatted string for the review
         pass
+
+
+

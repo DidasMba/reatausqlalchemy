@@ -27,3 +27,5 @@ class Restaurant(Base):
     def all_reviews(self):
         # Implementation to get all reviews for this restaurant
         pass
+
+
