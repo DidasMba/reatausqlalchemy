@@ -1,31 +1,17 @@
-# models/base.py
-from sqlalchemy.ext.declarative import declarative_base
-
-Base = declarative_base()
-
-
-
-from sqlalchemy import Column, Integer, String, ForeignKey
+# models/restaurant.py
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
-from .base import Base
+from models import Base
 
 class Restaurant(Base):
-    __tablename__ = 'restaurants'
+    __tablename__ = "restaurants"
 
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, index=True)
     price = Column(Integer)
 
-    reviews = relationship('Review', back_populates='restaurant')
-    customers = relationship('Customer', secondary='reviews', back_populates='restaurants')
-
-    @classmethod
-    def fanciest(cls):
-        # Implementation to find and return the fanciest restaurant
-        pass
-
-    def all_reviews(self):
-        # Implementation to get all reviews for this restaurant
-        pass
+    # Relationship with reviews
+    reviews = relationship("Review", back_populates="restaurant")
+    customers = relationship("Customer", secondary="reviews", back_populates="restaurants")
 
 
